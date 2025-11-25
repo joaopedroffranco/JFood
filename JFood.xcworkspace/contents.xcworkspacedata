@@ -1,38 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Workspace
    version = "1.0">
-   <Group
-      location = "group:JFoundation"
-      name = "JFoundation">
-      <FileRef
-         location = "group:README.md">
-      </FileRef>
-      <FileRef
-         location = "group:Package.swift">
-      </FileRef>
-      <Group
-         location = "group:Sources"
-         name = "Sources">
-         <Group
-            location = "group:JFoundation"
-            name = "JFoundation">
-            <Group
-               location = "group:Extensions"
-               name = "Extensions">
-               <FileRef
-                  location = "group:String+Extensions.swift">
-               </FileRef>
-               <FileRef
-                  location = "group:Decimal+Extensions.swift">
-               </FileRef>
-            </Group>
-         </Group>
-      </Group>
-   </Group>
+   <FileRef
+      location = "group:JFood.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:JUI">
+   </FileRef>
    <FileRef
       location = "group:JData">
    </FileRef>
    <FileRef
-      location = "group:JFood.xcodeproj">
+      location = "group:JFoundation">
    </FileRef>
 </Workspace>
