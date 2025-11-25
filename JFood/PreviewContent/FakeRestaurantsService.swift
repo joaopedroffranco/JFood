@@ -35,6 +35,13 @@ class PreviewFakeRestaurantsService: RestaurantsServiceProtocol {
 		}
 	}
 	
+	func getMore() async -> [Restaurant]? {
+		switch state {
+		case .loading, .loaded: return [instance, instance, instance]
+		case .error: return nil
+		}
+	}
+	
 	func getRecommendations() async -> [Restaurant]? {
 		switch state {
 		case .loading, .loaded: return [instance, instance, instance]

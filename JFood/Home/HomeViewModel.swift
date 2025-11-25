@@ -27,8 +27,12 @@ class HomeViewModel: ObservableObject {
 		self.bannersService = bannersService
 	}
 	
-	func fetchContent() {
+	func loadContent() {
 		Task { await fetch() }
+	}
+	
+	func loadMore() {
+		Task { await fetchMore() }
 	}
 }
 
@@ -50,6 +54,15 @@ private extension HomeViewModel {
 		}
 	}
 	
+	func fetchMore() async {
+		switch state {
+		case let .loaded(recommendations, allRestaurants, banners):
+			guard let allRestaurants = allRestaurants, let moreRestaurants = await fetchMoreRestaurants() else { return }
+			self.state = .loaded(recommendations: recommendations, allRestaurants: allRestaurants + moreRestaurants, banners: banners)
+		default: break
+		}
+	}
+	
 	func fetchRecommendations() async -> [RestaurantData]? {
 		guard let recommendations = await restaurantsService.getRecommendations() else { return nil }
 		return recommendations.map { RestaurantData(from: $0) }
@@ -63,5 +76,10 @@ private extension HomeViewModel {
 	func fetchBanners() async -> [HomeBannerData]? {
 		guard let banners = await bannersService.get() else { return nil }
 		return banners.map { HomeBannerData(from: $0) }
+	}
+	
+	func fetchMoreRestaurants() async -> [RestaurantData]? {
+		guard let moreRestaurants = await restaurantsService.getMore() else { return nil }
+		return moreRestaurants.map { RestaurantData(from: $0) }
 	}
 }

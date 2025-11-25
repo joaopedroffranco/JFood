@@ -6,24 +6,27 @@ import Foundation
 
 enum RestaurantRequest: Requestable {
 	case fetchAll
+	case fetchMore(page: Int)
 	case recommendations
 	
 	var method: RequestMethod {
 		switch self {
-		case .fetchAll, .recommendations: return .get
+		case .fetchAll, .fetchMore, .recommendations: return .get
 		}
 	}
 	
 	var endpoint: String {
 		switch self {
-		case .fetchAll: return "/restaurants"
+		case .fetchAll, .fetchMore: return "/restaurants"
 		case .recommendations: return "/recommendations"
 		}
 	}
 	
 	var params: [String : Any]? {
 		switch self {
-		case .fetchAll, .recommendations: return nil
+		case .fetchAll: return ["limit": "8", "page": "1"]
+		case let .fetchMore(page): return ["limit": "8", "page": page.description]
+		default: return nil
 		}
 	}
 	

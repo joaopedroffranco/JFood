@@ -29,8 +29,8 @@ struct HomeView: View {
 				)
 			}
 		}
-		.onFirstAppear { viewModel.fetchContent() }
-		.refreshable { viewModel.fetchContent() }
+		.onFirstAppear { viewModel.loadContent() }
+		.refreshable { viewModel.loadContent() }
 		.background(DesignSystem.Colors.background)
 	}
 	
@@ -100,6 +100,7 @@ struct HomeView: View {
 						subtitle: restaurant.description,
 						rating: (restaurant.rating, restaurant.numberOfRatings)
 					)
+					.onAppear { if offset >= data.count - 1 { viewModel.loadMore() } }
 					.padding(.horizontal, DesignSystem.Spacings.margin)
 					.frame(maxWidth: .infinity)
 				}
