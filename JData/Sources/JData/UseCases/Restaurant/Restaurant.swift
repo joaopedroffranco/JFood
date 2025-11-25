@@ -7,7 +7,7 @@ import Foundation
 public struct Restaurant: Identifiable {
 	public let id: String
 	public let name: String
-	public let rating: Double
+	public let rating: Float
 	public let numberOfRatings: Int
 	public let deliveryPrice: Decimal
 	public let eta: String
@@ -16,7 +16,7 @@ public struct Restaurant: Identifiable {
 	public init(
 		id: String,
 		name: String,
-		rating: Double,
+		rating: Float,
 		numberOfRatings: Int,
 		deliveryPrice: Decimal,
 		eta: String,

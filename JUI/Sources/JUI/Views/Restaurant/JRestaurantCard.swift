@@ -6,12 +6,12 @@ import SwiftUI
 import Kingfisher
 
 public struct JRestaurantCard: View {
-	let image: URL
+	let image: URL?
 	let title: String
 	let subtitle: String
 	let rating: (Float, Int)
 	
-	init(image: URL, title: String, subtitle: String, rating: (Float, Int)) {
+	public init(image: URL? = nil, title: String, subtitle: String, rating: (Float, Int)) {
 		self.image = image
 		self.title = title
 		self.subtitle = subtitle
@@ -20,8 +20,7 @@ public struct JRestaurantCard: View {
 	
 	public var body: some View {
 		VStack(alignment: .leading, spacing: DesignSystem.Spacings.default) {
-			KFImage(image)
-				.resizable()
+			JImage(image)
 				.frame(height: 200)
 				.cornerRadius(DesignSystem.Radius.default)
 				.overlay(
@@ -45,7 +44,7 @@ public struct JRestaurantCard: View {
 				RatingView(rating: rating.0, count: rating.1)
 			}
 		}
-		.background(DesignSystem.Colors.white)
+		.background(DesignSystem.Colors.background)
 		
 		
 		
@@ -57,6 +56,14 @@ public struct JRestaurantCard: View {
 		JRestaurantCard(
 			image: URL(string: "https://picsum.photos/200/80")!,
 			title: "Pizzaria Napoli",
+			subtitle: "Pizza • Italiana",
+			rating: (4.7, 1280)
+		)
+		.frame(width: 300)
+		
+		JRestaurantCard(
+			image: URL(string: "https://picsum.photos/200/80")!,
+			title: "Pizzaria Napoli com um nome muito grande",
 			subtitle: "Pizza • Italiana",
 			rating: (4.7, 1280)
 		)

@@ -36,4 +36,3 @@ public struct JCarousel<Data: Hashable, Row: View>: View {
 			.background(.red)
 	}
 }
-

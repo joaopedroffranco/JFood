@@ -27,7 +27,7 @@ enum RestaurantRequest: Requestable {
 		}
 	}
 	
-	var host: String { "https://69258a1482b59600d7240f80.mockapi.io" }
+	var host: String { "https://69258a1482b59600d7240f7f.mockapi.io" }
 	var headers: [String : String]? { nil }
 	var cachePolicy: URLRequest.CachePolicy { .reloadIgnoringLocalCacheData }
 }

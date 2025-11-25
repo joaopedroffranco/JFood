@@ -41,7 +41,7 @@ public enum DesignSystem {
   }
 
   public enum Spacings {
-		public static let small = 4.0
+		public static let small = 2.0
 		public static let margin = 16.0
 		public static let `default` = 8.0
 		public static let largeMargin = 24.0

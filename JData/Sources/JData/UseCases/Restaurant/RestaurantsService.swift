@@ -17,12 +17,12 @@ public class RestaurantsService: RestaurantsServiceProtocol {
 	}
 	
 	public func getAll() async -> [Restaurant]? {
-		guard let restaurants: [Restaurant] = try? await dataSource.fetch(request: RestaurantRequest.fetchAll), restaurants.count > 0 else { return nil }
+		guard let restaurants: [Restaurant] = try? await dataSource.fetch(request: RestaurantRequest.fetchAll), !restaurants.isEmpty else { return nil }
 		return restaurants
 	}
 	
 	public func getRecommendations() async -> [Restaurant]? {
-		guard let recommendations: [Restaurant] = try? await dataSource.fetch(request: RestaurantRequest.recommendations), recommendations.count > 0 else { return nil }
+		guard let recommendations: [Restaurant] = try? await dataSource.fetch(request: RestaurantRequest.recommendations), !recommendations.isEmpty else { return nil }
 		return recommendations
 	}
 }

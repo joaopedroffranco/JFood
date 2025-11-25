@@ -16,7 +16,7 @@ public class BannersService: BannersServiceProtocol {
 	}
 	
 	public func get() async -> [Banner]? {
-		guard let banners: [Banner] = try? await dataSource.fetch(request: BannerRequest.fetch), banners.count > 0 else { return nil }
+		guard let banners: [Banner] = try? await dataSource.fetch(request: BannerRequest.fetch), !banners.isEmpty else { return nil }
 		return banners
 	}
 }

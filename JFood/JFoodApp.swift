@@ -6,12 +6,20 @@
 //
 
 import SwiftUI
+import JUI
 
 @main
 struct JFoodApp: App {
+	
+	init() {
+		NavigationBarAppearance.setup()
+	}
+	
 	var body: some Scene {
 		WindowGroup {
-			ContentView()
+			NavigationView {
+				HomeScreenView()
+			}
 		}
 	}
 }

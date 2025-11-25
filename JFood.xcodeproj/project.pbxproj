@@ -6,6 +6,12 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		A7F99A4B2ED60384001B25AE /* JUI in Frameworks */ = {isa = PBXBuildFile; productRef = A7F99A4A2ED60384001B25AE /* JUI */; };
+		A7F99A4D2ED60386001B25AE /* JFoundation in Frameworks */ = {isa = PBXBuildFile; productRef = A7F99A4C2ED60386001B25AE /* JFoundation */; };
+		A7F99A4F2ED60389001B25AE /* JData in Frameworks */ = {isa = PBXBuildFile; productRef = A7F99A4E2ED60389001B25AE /* JData */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXContainerItemProxy section */
 		A7952F5F2ED5D10B009B0EFA /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -47,6 +53,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A7F99A4F2ED60389001B25AE /* JData in Frameworks */,
+				A7F99A4D2ED60386001B25AE /* JFoundation in Frameworks */,
+				A7F99A4B2ED60384001B25AE /* JUI in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -106,6 +115,9 @@
 			);
 			name = JFood;
 			packageProductDependencies = (
+				A7F99A4A2ED60384001B25AE /* JUI */,
+				A7F99A4C2ED60386001B25AE /* JFoundation */,
+				A7F99A4E2ED60389001B25AE /* JData */,
 			);
 			productName = JFood;
 			productReference = A7952F502ED5D10A009B0EFA /* JFood.app */;
@@ -582,6 +594,21 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		A7F99A4A2ED60384001B25AE /* JUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = JUI;
+		};
+		A7F99A4C2ED60386001B25AE /* JFoundation */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = JFoundation;
+		};
+		A7F99A4E2ED60389001B25AE /* JData */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = JData;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = A7952F482ED5D10A009B0EFA /* Project object */;
 }
