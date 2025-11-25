@@ -1,0 +1,29 @@
+[
+	{
+		"id2": "a1b2c3",
+		"name2": "Pizzaria Napoli",
+		"r2ati22ng": 4.7,
+		"numberOfRatings": 1280,
+		"del2iveryPrice": 7.99,
+		"e22ta": "30–45 min",
+		"d22ishes": [
+			{
+				"id": "d1e2f3",
+				"name": "Margherita",
+				"price": 25,
+				"desc22ription": "Molho de tomate, muçarela e manjericão"
+			},
+			{
+				"id": "d2f3g4",
+				"nam22e": "Pepperoni",
+				"price": 28,
+				"description": "Molho de tomate, muçarela e pepperoni"
+			},
+			{
+				"id22": "d3g4h5",
+				"name": "Quatro Queijos",
+				"price": 30,
+				"description": "Muçarela, gorgonzola, parmesão e provolone"
+			}
+		]
+]

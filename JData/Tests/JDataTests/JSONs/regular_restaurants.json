@@ -1,0 +1,86 @@
+[
+	{
+		"id": "a1b2c3",
+		"name": "Pizzaria Napoli",
+		"rating": 4.7,
+		"numberOfRatings": 1280,
+		"deliveryPrice": 7.99,
+		"eta": "30–45 min",
+		"dishes": [
+			{
+				"id": "d1e2f3",
+				"name": "Margherita",
+				"price": 25,
+				"description": "Molho de tomate, muçarela e manjericão"
+			},
+			{
+				"id": "d2f3g4",
+				"name": "Pepperoni",
+				"price": 28,
+				"description": "Molho de tomate, muçarela e pepperoni"
+			},
+			{
+				"id": "d3g4h5",
+				"name": "Quatro Queijos",
+				"price": 30,
+				"description": "Muçarela, gorgonzola, parmesão e provolone"
+			}
+		]
+	},
+	{
+		"id": "b2c3d4",
+		"name": "Burger House",
+		"rating": 4.5,
+		"numberOfRatings": 920,
+		"deliveryPrice": 5.5,
+		"eta": "25–35 min",
+		"dishes": [
+			{
+				"id": "e4f5g6",
+				"name": "Cheeseburger",
+				"price": 18,
+				"description": "Hambúrguer, queijo, alface e tomate"
+			},
+			{
+				"id": "f5g6h7",
+				"name": "Bacon Burger",
+				"price": 20,
+				"description": "Hambúrguer, bacon, queijo e molho especial"
+			},
+			{
+				"id": "g6h7i8",
+				"name": "Veggie Burger",
+				"price": 19,
+				"description": "Hambúrguer de grão-de-bico com salada"
+			}
+		]
+	},
+	{
+		"id": "c3d4e5",
+		"name": "Sushi Express",
+		"rating": 4.8,
+		"numberOfRatings": 1550,
+		"deliveryPrice": 12,
+		"eta": "40–55 min",
+		"dishes": [
+			{
+				"id": "h7i8j9",
+				"name": "California Roll",
+				"price": 22,
+				"description": "Arroz, kani, pepino e abacate"
+			},
+			{
+				"id": "i8j9k0",
+				"name": "Salmon Nigiri",
+				"price": 24,
+				"description": "Fatias de salmão sobre arroz temperado"
+			},
+			{
+				"id": "j9k0l1",
+				"name": "Temaki Atum",
+				"price": 20,
+				"description": "Cone de alga com arroz e atum fresco"
+			}
+		]
+	},
+]
