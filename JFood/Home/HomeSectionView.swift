@@ -6,8 +6,8 @@ import SwiftUI
 import JUI
 
 struct HomeSectionView<Content: View>: View {
-	let title: String
-	let contentView: () -> Content
+	private let title: String
+	private let contentView: () -> Content
 	
 	init(_ title: String, content: @escaping () -> Content) {
 		self.title = title

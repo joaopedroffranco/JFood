@@ -6,7 +6,7 @@ import SwiftUI
 import JUI
 
 struct RestaurantDetailScreenView: View {
-	@StateObject var viewModel: RestaurantDetailViewModel
+	@StateObject private var viewModel: RestaurantDetailViewModel
 	
 	init(restaurantId: String) {
 		self._viewModel = StateObject(wrappedValue: .init(restaurantId: restaurantId))

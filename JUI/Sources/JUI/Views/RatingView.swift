@@ -5,8 +5,8 @@
 import SwiftUI
 
 public struct RatingView: View {
-	let rating: Float
-	let count: Int
+	private let rating: Float
+	private let count: Int
 
 	public init(rating: Float, count: Int) {
 		self.rating = rating

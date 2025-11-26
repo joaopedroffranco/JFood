@@ -5,9 +5,9 @@
 import SwiftUI
 
 public struct JCarousel<Data: Hashable, Row: View>: View {
-	var data: [Data]
-	var rowView: (Int, Data) -> Row
-	let spacing: CGFloat
+	private let data: [Data]
+	private let rowView: (Int, Data) -> Row
+	private let spacing: CGFloat
 	
 	public init(
 		data: [Data],

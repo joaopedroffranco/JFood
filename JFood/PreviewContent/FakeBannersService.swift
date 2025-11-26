@@ -7,7 +7,7 @@ import JData
 
 #if DEBUG
 class PreviewFakeBannerService: BannersServiceProtocol {
-	var state: PreviewState
+	private let state: PreviewState
 	
 	init(_ state: PreviewState) {
 		self.state = state

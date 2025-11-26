@@ -8,7 +8,6 @@ public protocol JSONFileProtocol {
 	var name: String { get }
 }
 
-/// This enum provides a clear and organized way to reference JSON file names in the application.
 public enum JSONFile: JSONFileProtocol {
 	case regularRestaurants
 	case irregularRestaurants

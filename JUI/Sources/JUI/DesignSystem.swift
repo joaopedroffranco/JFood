@@ -4,11 +4,6 @@
 
 import SwiftUI
 
-/// Defines the app's Design System.
-///
-/// Instead of using hardcoded values, these resources are referenced to allow easy updates when the brand changes.
-///
-/// The available resources include `Colors`, `Fonts`, `Radius`, and `Spacings`.
 public enum DesignSystem {
   public enum Colors {
 		public static let white = Color(red: 255/255, green: 255/255, blue: 255/255)

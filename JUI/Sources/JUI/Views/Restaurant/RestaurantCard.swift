@@ -6,10 +6,10 @@ import SwiftUI
 import Kingfisher
 
 public struct RestaurantCard: View {
-	let image: URL?
-	let title: String
-	let subtitle: String
-	let rating: (Float, Int)
+	private let image: URL?
+	private let title: String
+	private let subtitle: String
+	private let rating: (Float, Int)
 	
 	public init(image: URL? = nil, title: String, subtitle: String, rating: (Float, Int)) {
 		self.image = image
@@ -29,7 +29,10 @@ public struct RestaurantCard: View {
 	
 	public var body: some View {
 		VStack(alignment: .leading, spacing: DesignSystem.Spacings.default) {
-			JImage(image)
+			KFImage(image)
+				.resizable()
+				.cacheMemoryOnly()
+				.memoryCacheExpiration(.seconds(300))
 				.frame(height: 200)
 				.cornerRadius(DesignSystem.Radius.default)
 				.overlay(

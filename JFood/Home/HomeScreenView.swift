@@ -7,7 +7,7 @@ import JUI
 
 struct HomeScreenView: View {
 	@EnvironmentObject private var router: MainRouter
-	@StateObject var viewModel: HomeViewModel = .init()
+	@StateObject private var viewModel: HomeViewModel = .init()
 	
 	var body: some View {
 		HomeView(viewModel: viewModel)

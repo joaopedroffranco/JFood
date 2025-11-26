@@ -7,7 +7,7 @@ import JData
 
 #if DEBUG
 class PreviewFakeRestaurantsService: RestaurantsServiceProtocol {
-	var state: PreviewState
+	private let state: PreviewState
 	
 	init(_ state: PreviewState) {
 		self.state = state

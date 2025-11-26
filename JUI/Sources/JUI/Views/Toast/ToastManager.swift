@@ -1,6 +1,6 @@
 //
 //  Created by Joao Pedro Fabiano Franco.
-//  
+//
 
 import Foundation
 import Combine
@@ -13,6 +13,10 @@ public class ToastManager: ObservableObject {
 	
 	public func show(_ message: String) {
 		self.message = message
-		DispatchQueue.main.asyncAfter(deadline: .now() + 2) { [weak self] in self?.message = nil }
+
+		Task {
+			try? await Task.sleep(nanoseconds: 2_000_000_000)
+			self.message = nil
+		}
 	}
 }

@@ -4,6 +4,7 @@
 
 import SwiftUI
 import JUI
+import Kingfisher
 
 struct RestaurantDetailView: View {
 	@ObservedObject private var viewModel: RestaurantDetailViewModel
@@ -46,7 +47,10 @@ struct RestaurantDetailView: View {
 	// MARK: Sections
 	private func headerView(_ restaurant: RestaurantData) -> some View {
 		VStack(alignment: .center, spacing: DesignSystem.Spacings.default) {
-			JImage(restaurant.imageUrl)
+			KFImage(restaurant.imageUrl)
+				.resizable()
+				.cacheMemoryOnly()
+				.memoryCacheExpiration(.seconds(300))
 				.frame(height: 220)
 			
 			VStack(alignment: .center, spacing: DesignSystem.Spacings.small) {

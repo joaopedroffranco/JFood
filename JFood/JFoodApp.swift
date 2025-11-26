@@ -1,8 +1,5 @@
 //
-//  JFoodApp.swift
-//  JFood
-//
-//  Created by Joao Pedro Fabiano Franco on 25/11/25.
+//  Created by Joao Pedro Fabiano Franco.
 //
 
 import SwiftUI

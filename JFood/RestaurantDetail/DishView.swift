@@ -6,9 +6,9 @@ import SwiftUI
 import JUI
 
 struct DishView: View {
-	let name: String
-	let price: String
-	let description: String
+	private let name: String
+	private let price: String
+	private let description: String
 	
 	init(name: String, price: String, description: String) {
 		self.name = name

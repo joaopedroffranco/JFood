@@ -1,13 +1,9 @@
-// Created in 2025
+//
+//  Created by Joao Pedro Fabiano Franco.
+//
 
 import SwiftUI
 
-/// A view that displays a rotating loading indicator.
-///
-/// This view shows an image that rotates continuously to indicate a loading state. The rotation is performed using
-/// an animated transformation, and the animation repeats forever when the view appears.
-///
-/// The `Loading` view is useful for providing visual feedback during loading or processing activities in an app.
 public struct LoadingView: View {
 	@State private var degreesRotating = 0.0
 	@State private var isAnimating = false

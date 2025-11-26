@@ -5,8 +5,8 @@
 import SwiftUI
 
 public struct JButton: View {
-	let title: String
-	let action: () -> Void
+	private let title: String
+	private let action: () -> Void
 	
 	public init(title: String, action: @escaping () -> Void = {}) {
 		self.title = title

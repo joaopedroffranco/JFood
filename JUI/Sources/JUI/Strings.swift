@@ -1,4 +1,6 @@
-// Created in 2025
+//
+//  Created by Joao Pedro Fabiano Franco.
+//
 
 import Foundation
 import JFoundation

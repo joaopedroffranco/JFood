@@ -1,11 +1,9 @@
-// Created in 2025
+//
+//  Created by Joao Pedro Fabiano Franco.
+//
 
 import SwiftUI
 
-/// A simple horizontal separator line.
-///
-/// This view renders a thin horizontal line (1pt in height) that can be used to visually separate content. The separator
-/// has a customizable color defined by the `DesignSystem.Colors.separator`.
 public struct Separator: View {
 	public init() {}
 	
