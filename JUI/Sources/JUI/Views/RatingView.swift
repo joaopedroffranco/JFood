@@ -4,16 +4,16 @@
 
 import SwiftUI
 
-struct RatingView: View {
+public struct RatingView: View {
 	let rating: Float
 	let count: Int
 
-	init(rating: Float, count: Int) {
+	public init(rating: Float, count: Int) {
 		self.rating = rating
 		self.count = count
 	}
 
-	var body: some View {
+	public var body: some View {
 		HStack(spacing: DesignSystem.Spacings.small) {
 			Text(rating.description)
 				.font(DesignSystem.Fonts.default)

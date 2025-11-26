@@ -5,7 +5,7 @@
 import SwiftUI
 import Kingfisher
 
-public struct JRestaurantCard: View {
+public struct RestaurantCard: View {
 	let image: URL?
 	let title: String
 	let subtitle: String
@@ -16,6 +16,15 @@ public struct JRestaurantCard: View {
 		self.title = title
 		self.subtitle = subtitle
 		self.rating = rating
+	}
+	
+	public init(data: any RestaurantDataProtocol) {
+		self.init(
+			image: data.imageUrl,
+			title: data.name,
+			subtitle: data.description,
+			rating: (data.rating, data.numberOfRatings)
+		)
 	}
 	
 	public var body: some View {
@@ -45,29 +54,27 @@ public struct JRestaurantCard: View {
 			}
 		}
 		.background(DesignSystem.Colors.background)
-		
-		
-		
 	}
 }
 
-#Preview {
-	Group {
-		JRestaurantCard(
-			image: URL(string: "https://picsum.photos/200/80")!,
-			title: "Pizzaria Napoli",
-			subtitle: "Pizza • Italiana",
-			rating: (4.7, 1280)
-		)
-		.frame(width: 300)
-		
-		JRestaurantCard(
-			image: URL(string: "https://picsum.photos/200/80")!,
-			title: "Pizzaria Napoli com um nome muito grande",
-			subtitle: "Pizza • Italiana",
-			rating: (4.7, 1280)
-		)
-		.frame(width: 300)
-	}
-	.padding(12)
+#Preview("Normal") {
+	RestaurantCard(
+		data: RestaurantData(
+			id: "1",
+			name: "Pizzaria Napoli",
+			rating: 4.7,
+			numberOfRatings: 1280,
+			deliveryPrice: 200, eta: "10min")
+	)
+	.frame(width: 300)
+}
+
+#Preview("Nome longo") {
+	RestaurantCard(
+		image: URL(string: "https://picsum.photos/200/80")!,
+		title: "Pizzaria Napoli com um nome muito grande",
+		subtitle: "Pizza • Italiana",
+		rating: (2.3, 12)
+	)
+	.frame(width: 300)
 }

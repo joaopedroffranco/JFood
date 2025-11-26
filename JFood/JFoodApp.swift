@@ -10,6 +10,7 @@ import JUI
 
 @main
 struct JFoodApp: App {
+	@StateObject private var router: MainRouter = .init()
 	
 	init() {
 		NavigationBarAppearance.setup()
@@ -17,9 +18,18 @@ struct JFoodApp: App {
 	
 	var body: some Scene {
 		WindowGroup {
-			NavigationView {
-				HomeScreenView()
+			NavigationStack(path: $router.path) {
+				homeScreenView
 			}
+			.tint(DesignSystem.Colors.white)
 		}
+	}
+}
+
+private extension JFoodApp {
+	@ViewBuilder var homeScreenView: some View {
+		HomeScreenView()
+			.environmentObject(router)
+			.navigationDestination(for: JFoodAppRoute.self) { $0.environmentObject(router) }
 	}
 }

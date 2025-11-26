@@ -5,8 +5,7 @@
 import Foundation
 import JData
 
-
-
+#if DEBUG
 class PreviewFakeRestaurantsService: RestaurantsServiceProtocol {
 	var state: PreviewState
 	
@@ -48,4 +47,12 @@ class PreviewFakeRestaurantsService: RestaurantsServiceProtocol {
 		case .error: return nil
 		}
 	}
+	
+	func getDetails(for id: String) async -> JData.Restaurant? {
+		switch state {
+		case .loading, .loaded: return instance
+		case .error: return nil
+		}
+	}
 }
+#endif

@@ -31,6 +31,7 @@ public enum DesignSystem {
 
   public enum Fonts {
 		public static let title = Font.system(size: 28, weight: .bold)
+		public static let subtitle = Font.system(size: 18, weight: .semibold)
 		public static let sectionTitle = Font.system(size: 20, weight: .semibold)
 		public static let `default` = Font.system(size: 16)
 		public static let description = Font.system(size: 14)

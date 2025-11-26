@@ -12,6 +12,9 @@ public protocol RestaurantDataProtocol {
 	var numberOfRatings: Int { get }
 	var deliveryPrice: Decimal { get }
 	var eta: String { get }
+
+	associatedtype DishData: DishDataProtocol
+	var dishes: [DishData]? { get }
 }
 
 public extension RestaurantDataProtocol {
@@ -26,13 +29,15 @@ public struct RestaurantData: Hashable, RestaurantDataProtocol {
 	public let numberOfRatings: Int
 	public let deliveryPrice: Decimal
 	public let eta: String
+	public let dishes: [DishData]?
 	
-	public init(id: String, name: String, rating: Float, numberOfRatings: Int, deliveryPrice: Decimal, eta: String) {
+	public init(id: String, name: String, rating: Float, numberOfRatings: Int, deliveryPrice: Decimal, eta: String, dishes: [DishData]? = nil) {
 		self.id = id
 		self.name = name
 		self.rating = rating
 		self.numberOfRatings = numberOfRatings
 		self.deliveryPrice = deliveryPrice
 		self.eta = eta
+		self.dishes = dishes
 	}
 }

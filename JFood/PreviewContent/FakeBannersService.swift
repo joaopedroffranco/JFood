@@ -5,6 +5,7 @@
 import Foundation
 import JData
 
+#if DEBUG
 class PreviewFakeBannerService: BannersServiceProtocol {
 	var state: PreviewState
 	
@@ -21,4 +22,5 @@ class PreviewFakeBannerService: BannersServiceProtocol {
 		}
 	}
 }
+#endif
 

@@ -8,6 +8,7 @@ public protocol RestaurantsServiceProtocol {
 	func getAll() async -> [Restaurant]?
 	func getMore() async -> [Restaurant]?
 	func getRecommendations() async -> [Restaurant]?
+	func getDetails(for id: String) async -> Restaurant?
 }
 
 public class RestaurantsService: RestaurantsServiceProtocol {
@@ -35,7 +36,12 @@ public class RestaurantsService: RestaurantsServiceProtocol {
 	}
 	
 	public func getRecommendations() async -> [Restaurant]? {
-		guard let recommendations: [Restaurant] = try? await dataSource.fetch(request: RestaurantRequest.recommendations), !recommendations.isEmpty else { return nil }
+		guard let recommendations: [Restaurant] = try? await dataSource.fetch(request: RestaurantRequest.fetchRecommendations), !recommendations.isEmpty else { return nil }
 		return recommendations
+	}
+	
+	public func getDetails(for id: String) async -> Restaurant? {
+		guard let restaurants: [Restaurant] = try? await dataSource.fetch(request: RestaurantRequest.fetchDetails(id: id)), !restaurants.isEmpty else { return nil }
+		return restaurants.first
 	}
 }

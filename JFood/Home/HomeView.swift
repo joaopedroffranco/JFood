@@ -6,6 +6,7 @@ import SwiftUI
 import JUI
 
 struct HomeView: View {
+	@EnvironmentObject private var router: MainRouter
 	@ObservedObject private var viewModel: HomeViewModel
 	
 	init(viewModel: HomeViewModel) {
@@ -61,24 +62,20 @@ struct HomeView: View {
 	
 	// MARK: Sections
 	private func recommendationsSection(_ data: [RestaurantData]) -> some View {
-		HomeSectionView(Strings.recommendations) {
+		JSectionView(Strings.recommendations) {
 			JCarousel(
 				data: data,
 				spacing: DesignSystem.Spacings.default) { offset, recommendation in
-					JRestaurantCard(
-						image: recommendation.imageUrl,
-						title: recommendation.name,
-						subtitle: recommendation.description,
-						rating: (recommendation.rating, recommendation.numberOfRatings)
-					)
-					.padding(.leading, offset == 0 ? DesignSystem.Spacings.margin : 0)
-					.frame(width: 330)
+					RestaurantCard(data: recommendation)
+						.padding(.leading, offset == 0 ? DesignSystem.Spacings.margin : 0)
+						.frame(width: 330)
+						.onTapGesture { router.push(.restaurantDetail(id: recommendation.id)) }
 				}
 		}
 	}
 	
 	private func bannersSection(_ data: [HomeBannerData]) -> some View {
-		HomeSectionView(Strings.banners) {
+		JSectionView(Strings.banners) {
 			JCarousel(
 				data: data,
 				spacing: DesignSystem.Spacings.default) { offset, banner in
@@ -91,18 +88,14 @@ struct HomeView: View {
 	}
 	
 	private func allRestaurantsSection(_ data: [RestaurantData]) -> some View {
-		HomeSectionView(Strings.allRestaurants) {
+		JSectionView(Strings.allRestaurants) {
 			LazyVStack(alignment: .leading, spacing: DesignSystem.Spacings.margin) {
 				ForEach(Array(data.enumerated()), id: \.offset) { offset, restaurant in
-					JRestaurantCard(
-						image: restaurant.imageUrl,
-						title: restaurant.name,
-						subtitle: restaurant.description,
-						rating: (restaurant.rating, restaurant.numberOfRatings)
-					)
-					.onAppear { if offset >= data.count - 1 { viewModel.loadMore() } }
-					.padding(.horizontal, DesignSystem.Spacings.margin)
-					.frame(maxWidth: .infinity)
+					RestaurantCard(data: restaurant)
+						.onAppear { if offset >= data.count - 1 { viewModel.loadMore() } }
+						.padding(.horizontal, DesignSystem.Spacings.margin)
+						.frame(maxWidth: .infinity)
+						.onTapGesture { router.push(.restaurantDetail(id: restaurant.id)) }
 				}
 			}
 		}

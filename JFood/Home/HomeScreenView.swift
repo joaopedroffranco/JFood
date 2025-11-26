@@ -6,6 +6,7 @@ import SwiftUI
 import JUI
 
 struct HomeScreenView: View {
+	@EnvironmentObject private var router: MainRouter
 	@StateObject var viewModel: HomeViewModel = .init()
 	
 	var body: some View {

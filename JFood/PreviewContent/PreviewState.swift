@@ -4,8 +4,10 @@
 
 import Foundation
 
+#if DEBUG
 enum PreviewState {
 	case loading
 	case loaded
 	case error
 }
+#endif
