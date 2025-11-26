@@ -6,7 +6,7 @@ import Foundation
 import JData
 
 #if DEBUG
-class PreviewFakeBannerService: BannersServiceProtocol {
+class PreviewFakeBannersService: BannersServiceProtocol {
 	private let state: PreviewState
 	
 	init(_ state: PreviewState) {

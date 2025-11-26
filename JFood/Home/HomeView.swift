@@ -113,7 +113,7 @@ struct HomeView: View {
 	HomeView(
 		viewModel: HomeViewModel(
 			restaurantsService: PreviewFakeRestaurantsService(.loaded),
-			bannersService: PreviewFakeBannerService(.loaded)
+			bannersService: PreviewFakeBannersService(.loaded)
 		)
 	)
 }
@@ -122,7 +122,7 @@ struct HomeView: View {
 	HomeView(
 		viewModel: HomeViewModel(
 			restaurantsService: PreviewFakeRestaurantsService(.error),
-			bannersService: PreviewFakeBannerService(.error)
+			bannersService: PreviewFakeBannersService(.error)
 		)
 	)
 }

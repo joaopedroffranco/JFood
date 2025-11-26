@@ -6,7 +6,7 @@ import Combine
 import JData
 import JUI
 
-enum HomeViewState {
+enum HomeViewState: Equatable {
 	case loading
 	case loaded(recommendations: [RestaurantData]?, allRestaurants: [RestaurantData]?, banners: [HomeBannerData]?)
 	case error

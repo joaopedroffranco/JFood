@@ -1,18 +1,22 @@
 [
 	{
-		"id": "b1a2c3",
-		"image": "https://images.pexels.com/photos/1640777/pexels-photo-1640777.jpeg"
+		"id": "b1",
+		"text": "Entrega grátis hoje!",
+		"color": "#FF6B6B"
 	},
 	{
-		"id": "b2d3e4",
-		"image": "https://images.pexels.com/photos/461198/pexels-photo-461198.jpeg"
+		"id": "b2",
+		"text": "50% OFF no segundo pedido",
+		"color": "#4ECDC4"
 	},
 	{
-		"id": "b3f4g5",
-		"image": "https://images.pexels.com/photos/262959/pexels-photo-262959.jpeg"
+		"id": "b3",
+		"text": "Combo especial de almoço",
+		"color": "#FFD93D"
 	},
 	{
-		"id": "b4h5i6",
-		"image": "https://images.pexels.com/photos/70497/pexels-photo-70497.jpeg"
+		"id": "b4",
+		"text": "Peça agora e ganhe sobremesa",
+		"color": "#1A535C"
 	}
 ]

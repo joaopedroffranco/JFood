@@ -74,4 +74,72 @@ final class RestaurantsServiceTests: XCTestCase {
 		// then
 		XCTAssertNil(allRestaurants)
 	}
+	
+	// MARK: Get More
+	func testGetMoreRegularResponse() async throws {
+		// given
+		let service = RestaurantsService(dataSource: FakeRemoteDataSource(jsonFile: JSONFile.regularRestaurants))
+		
+		// when
+		let moreRestaurants = await service.getMore()
+
+		// then
+		XCTAssertEqual(moreRestaurants?.count, 3)
+	}
+	
+	func testGetMoreIrregularResponse() async throws {
+		// given
+		let service = RestaurantsService(dataSource: FakeRemoteDataSource(jsonFile: JSONFile.irregularRestaurants))
+		
+		// when
+		let moreRestaurants = await service.getMore()
+
+		// then
+		XCTAssertNil(moreRestaurants)
+	}
+	
+	func testGetMoreEmptyResponse() async throws {
+		// given
+		let service = RestaurantsService(dataSource: FakeRemoteDataSource(jsonFile: JSONFile.emptyRestaurants))
+		
+		// when
+		let moreRestaurants = await service.getMore()
+
+		// then
+		XCTAssertNil(moreRestaurants)
+	}
+	
+	// MARK: Details
+	func testGetDetailsRegularResponse() async throws {
+		// given
+		let service = RestaurantsService(dataSource: FakeRemoteDataSource(jsonFile: JSONFile.regularRestaurants))
+		
+		// when
+		let restaurant = await service.getDetails(for: "any")
+
+		// then
+		XCTAssertNotNil(restaurant)
+	}
+	
+	func testGetDetailsIrregularResponse() async throws {
+		// given
+		let service = RestaurantsService(dataSource: FakeRemoteDataSource(jsonFile: JSONFile.irregularRestaurants))
+		
+		// when
+		let restaurant = await service.getDetails(for: "any")
+
+		// then
+		XCTAssertNil(restaurant)
+	}
+	
+	func testGetDetailsEmptyResponse() async throws {
+		// given
+		let service = RestaurantsService(dataSource: FakeRemoteDataSource(jsonFile: JSONFile.emptyRestaurants))
+		
+		// when
+		let restaurant = await service.getDetails(for: "any")
+
+		// then
+		XCTAssertNil(restaurant)
+	}
 }

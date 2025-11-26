@@ -6,7 +6,7 @@ import Combine
 import JData
 import JUI
 
-enum RestaurantDetailViewState {
+enum RestaurantDetailViewState: Equatable {
 	case loading
 	case loaded(restaurant: RestaurantData)
 	case error
