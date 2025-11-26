@@ -53,6 +53,7 @@ public enum DesignSystem {
 		public static let loading = "loading"
 		public static let star = "star"
 		public static let add = "add"
+		public static let warning = "warning"
 	}
 }
 

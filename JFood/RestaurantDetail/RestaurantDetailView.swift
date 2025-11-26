@@ -31,13 +31,16 @@ struct RestaurantDetailView: View {
 	}
 	
 	// MARK: States
-	private var errorView: some View { Text("Error") }
-	private var loadingView: some View { Loading() }
+	private var loadingView: some View { LoadingView() }
 	private func contentView(restaurant: RestaurantData) -> some View {
 		ScrollView(.vertical) {
 			headerView(restaurant)
 			if let dishes = restaurant.dishes { menuView(dishes) }
 		}
+	}
+	
+	private var errorView: some View {
+		ErrorView(Strings.errorLoadingData) { viewModel.loadContent() }
 	}
 	
 	// MARK: Sections
@@ -116,7 +119,7 @@ struct RestaurantDetailView: View {
 	}
 }
 
-#Preview("Com contéudo") {
+#Preview("Content") {
 	RestaurantDetailView(
 		viewModel: RestaurantDetailViewModel(
 			restaurantId: "1", restaurantsService: PreviewFakeRestaurantsService(.loaded)
@@ -124,7 +127,7 @@ struct RestaurantDetailView: View {
 	)
 }
 
-#Preview("Sem contéudo") {
+#Preview("No Content") {
 	RestaurantDetailView(
 		viewModel: RestaurantDetailViewModel(
 			restaurantId: "1", restaurantsService: PreviewFakeRestaurantsService(.error)

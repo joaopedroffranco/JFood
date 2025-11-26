@@ -12,15 +12,19 @@ public struct Toast: View {
 	}
 	
 	public var body: some View {
-		Text(message)
-			.font(DesignSystem.Fonts.default)
-			.foregroundColor(DesignSystem.Colors.white)
-			.padding(.horizontal, DesignSystem.Spacings.default)
-			.padding(.vertical, 2*DesignSystem.Spacings.default)
-			.frame(maxWidth: .infinity)
-			.background(DesignSystem.Colors.dark)
-			.cornerRadius(DesignSystem.Radius.small)
-			.shadow(radius: 4)
+		HStack {
+			Text(message)
+				.font(DesignSystem.Fonts.default)
+				.foregroundColor(DesignSystem.Colors.white)
+				.padding(.horizontal, DesignSystem.Spacings.default)
+			Spacer()
+		}
+		.padding(.horizontal, DesignSystem.Spacings.default)
+		.padding(.vertical, 2*DesignSystem.Spacings.default)
+		.frame(maxWidth: .infinity)
+		.background(DesignSystem.Colors.dark)
+		.cornerRadius(DesignSystem.Radius.small)
+		.shadow(radius: 4)
 	}
 }
 

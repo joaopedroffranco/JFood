@@ -8,7 +8,7 @@ import SwiftUI
 /// an animated transformation, and the animation repeats forever when the view appears.
 ///
 /// The `Loading` view is useful for providing visual feedback during loading or processing activities in an app.
-public struct Loading: View {
+public struct LoadingView: View {
 	@State private var degreesRotating = 0.0
 	@State private var isAnimating = false
 
@@ -31,5 +31,5 @@ public struct Loading: View {
 }
 
 #Preview {
-	Loading()
+	LoadingView()
 }

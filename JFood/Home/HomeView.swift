@@ -36,8 +36,7 @@ struct HomeView: View {
 	}
 	
 	// MARK: States
-	private var errorView: some View { Text("Error") }
-	private var loadingView: some View { Loading() }
+	private var loadingView: some View { LoadingView() }
 	private func contentView(
 		recommendations: [RestaurantData]?,
 		allRestaurants: [RestaurantData]?,
@@ -58,6 +57,10 @@ struct HomeView: View {
 				if let allRestaurants = allRestaurants { allRestaurantsSection(allRestaurants) }
 			}
 		}
+	}
+	
+	private var errorView: some View {
+		ErrorView(Strings.errorLoadingData) { viewModel.loadContent() }
 	}
 	
 	// MARK: Sections
@@ -102,7 +105,7 @@ struct HomeView: View {
 	}
 }
 
-#Preview("Com contéudo") {
+#Preview("Content") {
 	HomeView(
 		viewModel: HomeViewModel(
 			restaurantsService: PreviewFakeRestaurantsService(.loaded),
@@ -111,7 +114,7 @@ struct HomeView: View {
 	)
 }
 
-#Preview("Sem contéudo") {
+#Preview("No Content") {
 	HomeView(
 		viewModel: HomeViewModel(
 			restaurantsService: PreviewFakeRestaurantsService(.error),

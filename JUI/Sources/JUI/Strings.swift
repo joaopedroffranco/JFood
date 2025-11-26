@@ -17,4 +17,7 @@ public enum Strings {
 	public static let addedToCart = "Adicionado ao carrinho"
 	
 	public static func restaurantDescription(deliveryPrice: Decimal, deliveryTime: String) -> String { "\(self.deliveryPrice): \(deliveryPrice.asString) • \(deliveryTime)" }
+
+	public static let errorLoadingData = "Erro ao carregar os dados :/"
+	public static let tryAgain = "Tentar novamente"
 }
