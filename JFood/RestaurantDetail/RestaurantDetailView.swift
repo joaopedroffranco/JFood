@@ -7,6 +7,7 @@ import JUI
 
 struct RestaurantDetailView: View {
 	@ObservedObject private var viewModel: RestaurantDetailViewModel
+	@EnvironmentObject private var toastManager: ToastManager
 	
 	init(viewModel: RestaurantDetailViewModel) {
 		self.viewModel = viewModel
@@ -52,7 +53,7 @@ struct RestaurantDetailView: View {
 				
 				RatingView(rating: restaurant.rating, count: restaurant.numberOfRatings)
 			}
-
+			
 			HStack {
 				VStack(alignment: .center, spacing: DesignSystem.Spacings.small) {
 					Text(Strings.deliveryPrice)
@@ -98,8 +99,15 @@ struct RestaurantDetailView: View {
 			LazyVStack(alignment: .leading, spacing: DesignSystem.Spacings.default) {
 				ForEach(Array(dishes.enumerated()), id: \.offset) { offset, dish  in
 					VStack(alignment: .leading, spacing: DesignSystem.Spacings.small) {
-						DishView(from: dish)
-							.padding(.horizontal, DesignSystem.Spacings.margin)
+						HStack {
+							DishView(from: dish)
+							
+							Spacer()
+							
+							AddButton { toastManager.show(Strings.addedToCart) }
+							.frame(width: 24)
+						}
+						.padding(.horizontal, DesignSystem.Spacings.margin)
 						Separator()
 					}
 				}

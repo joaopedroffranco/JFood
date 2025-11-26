@@ -5,12 +5,12 @@
 import Foundation
 import SwiftUI
 
-enum JFoodAppRoute: Hashable {
+enum AppRoute: Hashable {
 	case home
 	case restaurantDetail(id: String)
 }
 
-extension JFoodAppRoute: View {
+extension AppRoute: View {
 	var body: some View {
 		switch self {
 		case let .restaurantDetail(id):

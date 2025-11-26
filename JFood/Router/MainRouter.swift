@@ -9,7 +9,7 @@ import SwiftUI
 class MainRouter: ObservableObject {
 	@Published var path: NavigationPath = .init()
 	
-	func push(_ next: JFoodAppRoute) {
+	func push(_ next: AppRoute) {
 		path.append(next)
 	}
 	

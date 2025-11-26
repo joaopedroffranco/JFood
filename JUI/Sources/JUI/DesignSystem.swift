@@ -39,6 +39,7 @@ public enum DesignSystem {
 
   public enum Radius {
 		public static let `default` = 16.0
+		public static let small = 4.0
   }
 
   public enum Spacings {
@@ -51,6 +52,7 @@ public enum DesignSystem {
 	public enum Assets {
 		public static let loading = "loading"
 		public static let star = "star"
+		public static let add = "add"
 	}
 }
 
