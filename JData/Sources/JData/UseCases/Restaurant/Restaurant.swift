@@ -11,6 +11,7 @@ public struct Restaurant: Identifiable {
 	public let numberOfRatings: Int
 	public let deliveryPrice: Decimal
 	public let eta: String
+	public let image: String
 	public let dishes: [Dish]?
 	
 	public init(
@@ -20,6 +21,7 @@ public struct Restaurant: Identifiable {
 		numberOfRatings: Int,
 		deliveryPrice: Decimal,
 		eta: String,
+		image: String,
 		dishes: [Dish]? = nil
 	) {
 		self.id = id
@@ -28,6 +30,7 @@ public struct Restaurant: Identifiable {
 		self.numberOfRatings = numberOfRatings
 		self.deliveryPrice = deliveryPrice
 		self.eta = eta
+		self.image = image
 		self.dishes = dishes
 	}
 }

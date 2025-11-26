@@ -20,6 +20,7 @@ class PreviewFakeRestaurantsService: RestaurantsServiceProtocol {
 		numberOfRatings: 1280,
 		deliveryPrice: 7.99,
 		eta: "30–45 min",
+		image: "https://picsum.photos/200/800",
 		dishes: [
 			Dish(id: "d1", name: "Margherita", price: 25.0, description: "Molho de tomate, muçarela e manjericão"),
 			Dish(id: "d2", name: "Pepperoni", price: 28.0, description: "Molho de tomate, muçarela e pepperoni"),

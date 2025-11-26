@@ -25,8 +25,8 @@ enum RestaurantRequest: Requestable {
 	
 	var params: [String : Any]? {
 		switch self {
-		case .fetchAll: return ["limit": "8", "page": "1"]
-		case let .fetchMore(page): return ["limit": "8", "page": page.description]
+		case .fetchAll: return ["limit": "6", "page": "1"]
+		case let .fetchMore(page): return ["limit": "6", "page": page.description]
 		case let .fetchDetails(id): return ["id": id]
 		default: return nil
 		}

@@ -15,6 +15,7 @@ extension RestaurantData {
 			numberOfRatings: restaurant.numberOfRatings,
 			deliveryPrice: restaurant.deliveryPrice,
 			eta: restaurant.eta,
+			image: restaurant.image,
 			dishes: restaurant.dishes?.map { DishData(from: $0) }
 		)
 	}

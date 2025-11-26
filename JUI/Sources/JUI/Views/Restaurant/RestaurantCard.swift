@@ -64,7 +64,10 @@ public struct RestaurantCard: View {
 			name: "Pizzaria Napoli",
 			rating: 4.7,
 			numberOfRatings: 1280,
-			deliveryPrice: 200, eta: "10min")
+			deliveryPrice: 200,
+			eta: "10min",
+			image: "https://images.pexels.com/photos/315755/pexels-photo-315755.jpeg?auto=compress&cs=tinysrgb&h=350"
+		)
 	)
 	.frame(width: 300)
 }
