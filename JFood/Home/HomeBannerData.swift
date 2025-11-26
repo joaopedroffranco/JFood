@@ -7,16 +7,18 @@ import JData
 
 struct HomeBannerData: Hashable {
 	let id: String
-	let image: String
+	let text: String
+	let color: String
 	
-	init(id: String, image: String) {
+	init(id: String, text: String, color: String) {
 		self.id = id
-		self.image = image
+		self.text = text
+		self.color = color
 	}
 }
 
 extension HomeBannerData {
 	init(from banner: Banner) {
-		self.init(id: banner.id, image: banner.image)
+		self.init(id: banner.id, text: banner.text, color: banner.color)
 	}
 }

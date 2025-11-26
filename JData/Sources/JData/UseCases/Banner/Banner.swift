@@ -6,14 +6,17 @@ import Foundation
 
 public struct Banner: Identifiable {
 	public let id: String
-	public let image: String
+	public let text: String
+	public let color: String
 	
 	public init(
 		id: String,
-		image: String
+		text: String,
+		color: String
 	) {
 		self.id = id
-		self.image = image
+		self.text = text
+		self.color = color
 	}
 }
 

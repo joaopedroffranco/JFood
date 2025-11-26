@@ -33,6 +33,16 @@ public struct RestaurantCard: View {
 				.frame(height: 200)
 				.cornerRadius(DesignSystem.Radius.default)
 				.overlay(
+					LinearGradient(
+						gradient: Gradient(colors: [Color.black.opacity(0.5), Color.clear]),
+						startPoint: .bottom,
+						endPoint: .top
+					)
+					.frame(height: 100)
+					.cornerRadius(DesignSystem.Radius.default),
+					alignment: .bottom
+				)
+				.overlay(
 					RoundedRectangle(cornerRadius: DesignSystem.Radius.default)
 						.stroke(DesignSystem.Colors.shadowBorder, lineWidth: 1)
 				)

@@ -82,10 +82,14 @@ struct HomeView: View {
 			JCarousel(
 				data: data,
 				spacing: DesignSystem.Spacings.default) { offset, banner in
-					JImage(banner.image.asUrl)
+					Text(banner.text)
+						.font(DesignSystem.Fonts.title)
+						.foregroundColor(DesignSystem.Colors.white)
+						.multilineTextAlignment(.center)
+						.frame(width: 300, height: 150)
+						.background(banner.color.asColor)
 						.cornerRadius(DesignSystem.Radius.default)
 						.padding(.leading, offset == 0 ? DesignSystem.Spacings.margin : 0)
-						.frame(width: 300, height: 150)
 				}
 		}
 	}

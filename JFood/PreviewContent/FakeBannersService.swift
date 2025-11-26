@@ -13,7 +13,7 @@ class PreviewFakeBannerService: BannersServiceProtocol {
 		self.state = state
 	}
 	
-	private let instance = Banner(id: "123", image: "https://picsum.photos/200/800")
+	private let instance = Banner(id: "123", text: "50% de desconto apenas hoje!", color: "#FE2346")
 	
 	func get() async -> [Banner]? {
 		switch state {
