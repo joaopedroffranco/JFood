@@ -23,7 +23,7 @@ public extension RestaurantDataProtocol {
 	var description: String { Strings.restaurantDescription(deliveryPrice: deliveryPrice, deliveryTime: eta) }
 }
 
-public struct RestaurantData: Hashable, RestaurantDataProtocol {
+public struct RestaurantData: Hashable, Sendable, RestaurantDataProtocol {
 	public let id: String
 	public let name: String
 	public let rating: Float

@@ -35,4 +35,4 @@ public struct Restaurant: Identifiable {
 	}
 }
 
-extension Restaurant: Codable {}
+extension Restaurant: Codable, Sendable {}

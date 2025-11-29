@@ -4,6 +4,7 @@
 
 import UIKit
 
+@MainActor
 public class NavigationBarAppearance {
 	public static func setup() {
 		let appearance = UINavigationBarAppearance()

@@ -36,7 +36,6 @@ class HomeViewModel: ObservableObject {
 	}
 }
 
-
 private extension HomeViewModel {
 	func fetch() async {
 		state = .loading

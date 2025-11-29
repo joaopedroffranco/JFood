@@ -10,7 +10,12 @@ public struct Dish: Identifiable {
 	public let price: Decimal
 	public let description: String
 	
-	public init(id: String, name: String, price: Decimal, description: String) {
+	public init(
+		id: String,
+		name: String,
+		price: Decimal,
+		description: String
+	) {
 		self.id = id
 		self.name = name
 		self.price = price
@@ -18,4 +23,4 @@ public struct Dish: Identifiable {
 	}
 }
 
-extension Dish: Codable {}
+extension Dish: Codable, Sendable {}

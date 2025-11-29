@@ -15,7 +15,7 @@ public extension DishDataProtocol {
 	var priceAsString: String { price.asString }
 }
 
-public struct DishData: Hashable, DishDataProtocol {
+public struct DishData: Hashable, Sendable, DishDataProtocol {
 	public let name: String
 	public let price: Decimal
 	public let description: String

@@ -20,4 +20,4 @@ public struct Banner: Identifiable {
 	}
 }
 
-extension Banner: Codable {}
+extension Banner: Codable, Sendable {}

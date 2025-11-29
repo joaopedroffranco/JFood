@@ -5,7 +5,7 @@
 import Foundation
 import JData
 
-struct HomeBannerData: Hashable {
+struct HomeBannerData: Hashable, Sendable {
 	let id: String
 	let text: String
 	let color: String
@@ -19,6 +19,10 @@ struct HomeBannerData: Hashable {
 
 extension HomeBannerData {
 	init(from banner: Banner) {
-		self.init(id: banner.id, text: banner.text, color: banner.color)
+		self.init(
+			id: banner.id,
+			text: banner.text,
+			color: banner.color
+		)
 	}
 }
