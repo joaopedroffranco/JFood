@@ -18,7 +18,7 @@ public struct RestaurantCard: View {
 		self.rating = rating
 	}
 	
-	public init(data: any RestaurantDataProtocol) {
+	public init(data: any RestaurantProtocol) {
 		self.init(
 			image: data.imageUrl,
 			title: data.name,
@@ -68,21 +68,6 @@ public struct RestaurantCard: View {
 		}
 		.background(DesignSystem.Colors.background)
 	}
-}
-
-#Preview("Normal") {
-	RestaurantCard(
-		data: RestaurantData(
-			id: "1",
-			name: "Pizzaria Napoli",
-			rating: 4.7,
-			numberOfRatings: 1280,
-			deliveryPrice: 200,
-			eta: "10min",
-			image: "https://images.pexels.com/photos/315755/pexels-photo-315755.jpeg?auto=compress&cs=tinysrgb&h=350"
-		)
-	)
-	.frame(width: 300)
 }
 
 #Preview("Nome longo") {

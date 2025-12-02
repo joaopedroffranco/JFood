@@ -4,7 +4,7 @@
 
 import Foundation
 
-public struct Banner: Identifiable {
+public struct BannerDTO: Identifiable {
 	public let id: String
 	public let text: String
 	public let color: String
@@ -20,4 +20,4 @@ public struct Banner: Identifiable {
 	}
 }
 
-extension Banner: Codable, Sendable {}
+extension BannerDTO: Codable, Sendable {}

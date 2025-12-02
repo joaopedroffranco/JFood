@@ -8,7 +8,7 @@ import JUI
 
 enum HomeViewState: Equatable {
 	case loading
-	case loaded(recommendations: [RestaurantData]?, allRestaurants: [RestaurantData]?, banners: [HomeBannerData]?)
+	case loaded(recommendations: [Restaurant]?, allRestaurants: [Restaurant]?, banners: [Banner]?)
 	case error
 }
 
@@ -62,23 +62,23 @@ private extension HomeViewModel {
 		}
 	}
 	
-	func fetchRecommendations() async -> [RestaurantData]? {
+	func fetchRecommendations() async -> [Restaurant]? {
 		guard let recommendations = await restaurantsService.getRecommendations() else { return nil }
-		return recommendations.map { RestaurantData(from: $0) }
+		return recommendations.map { Restaurant(from: $0) }
 	}
 	
-	func fetchAllRestaurants() async -> [RestaurantData]? {
+	func fetchAllRestaurants() async -> [Restaurant]? {
 		guard let allRestaurants = await restaurantsService.getAll() else { return nil }
-		return allRestaurants.map { RestaurantData(from: $0) }
+		return allRestaurants.map { Restaurant(from: $0) }
 	}
 	
-	func fetchBanners() async -> [HomeBannerData]? {
+	func fetchBanners() async -> [Banner]? {
 		guard let banners = await bannersService.get() else { return nil }
-		return banners.map { HomeBannerData(from: $0) }
+		return banners.map { Banner(from: $0) }
 	}
 	
-	func fetchMoreRestaurants() async -> [RestaurantData]? {
+	func fetchMoreRestaurants() async -> [Restaurant]? {
 		guard let moreRestaurants = await restaurantsService.getMore() else { return nil }
-		return moreRestaurants.map { RestaurantData(from: $0) }
+		return moreRestaurants.map { Restaurant(from: $0) }
 	}
 }

@@ -33,7 +33,7 @@ final class RestaurantDetailViewModelTests: XCTestCase {
 		await fulfillment(of: [expectation], timeout: 5)
 		
 		/// then
-		XCTAssertEqual(expectedState, .loaded(restaurant: RestaurantData(from: selectedRestaurant)))
+		XCTAssertEqual(expectedState, .loaded(restaurant: Restaurant(from: selectedRestaurant)))
 	}
 	
 	func testLoadContentWithNothing() async throws {

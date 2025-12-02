@@ -8,7 +8,7 @@ import JUI
 
 enum RestaurantDetailViewState: Equatable {
 	case loading
-	case loaded(restaurant: RestaurantData)
+	case loaded(restaurant: Restaurant)
 	case error
 }
 
@@ -41,8 +41,8 @@ private extension RestaurantDetailViewModel {
 		}
 	}
 	
-	func fetchRestaurant() async -> RestaurantData? {
+	func fetchRestaurant() async -> Restaurant? {
 		guard let restaurant = await restaurantsService.getDetails(for: restaurantId) else { return nil }
-		return RestaurantData(from: restaurant)
+		return Restaurant(from: restaurant)
 	}
 }

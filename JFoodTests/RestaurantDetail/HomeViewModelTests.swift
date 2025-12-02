@@ -40,9 +40,9 @@ final class HomeViewModelTests: XCTestCase {
 		XCTAssertEqual(
 			expectedState,
 			.loaded(
-				recommendations: recommendations.map { RestaurantData(from: $0) },
-				allRestaurants: restaurants.map { RestaurantData(from: $0) },
-				banners: banners.map { HomeBannerData(from: $0) }
+				recommendations: recommendations.map { Restaurant(from: $0) },
+				allRestaurants: restaurants.map { Restaurant(from: $0) },
+				banners: banners.map { Banner(from: $0) }
 			)
 		)
 	}
@@ -76,8 +76,8 @@ final class HomeViewModelTests: XCTestCase {
 			expectedState,
 			.loaded(
 				recommendations: nil,
-				allRestaurants: restaurants.map { RestaurantData(from: $0) },
-				banners: banners.map { HomeBannerData(from: $0) }
+				allRestaurants: restaurants.map { Restaurant(from: $0) },
+				banners: banners.map { Banner(from: $0) }
 			)
 		)
 	}
@@ -110,9 +110,9 @@ final class HomeViewModelTests: XCTestCase {
 		XCTAssertEqual(
 			expectedState,
 			.loaded(
-				recommendations: recommendations.map { RestaurantData(from: $0) },
+				recommendations: recommendations.map { Restaurant(from: $0) },
 				allRestaurants: nil,
-				banners: banners.map { HomeBannerData(from: $0) }
+				banners: banners.map { Banner(from: $0) }
 			)
 		)
 	}
@@ -145,8 +145,8 @@ final class HomeViewModelTests: XCTestCase {
 		XCTAssertEqual(
 			expectedState,
 			.loaded(
-				recommendations: recommendations.map { RestaurantData(from: $0) },
-				allRestaurants: restaurants.map { RestaurantData(from: $0) },
+				recommendations: recommendations.map { Restaurant(from: $0) },
+				allRestaurants: restaurants.map { Restaurant(from: $0) },
 				banners: nil
 			)
 		)
@@ -189,7 +189,7 @@ final class HomeViewModelTests: XCTestCase {
 		let service = FakeRestaurantsService(restaurants: restaurants, recommendations: nil, moreRestaurants: moreRestaurants)
 		let bannerService = FakeBannersService(banners: nil)
 		let viewModel = await HomeViewModel(restaurantsService: service, bannersService: bannerService)
-		let initialState: HomeViewState = .loaded(recommendations: nil, allRestaurants: restaurants.map { RestaurantData(from: $0) }, banners: nil)
+		let initialState: HomeViewState = .loaded(recommendations: nil, allRestaurants: restaurants.map { Restaurant(from: $0) }, banners: nil)
 
 		await MainActor.run {
 			viewModel.state = initialState
@@ -214,7 +214,7 @@ final class HomeViewModelTests: XCTestCase {
 			expectedState,
 			.loaded(
 				recommendations: nil,
-				allRestaurants: (restaurants + moreRestaurants).map { RestaurantData(from: $0) },
+				allRestaurants: (restaurants + moreRestaurants).map { Restaurant(from: $0) },
 				banners: nil
 			)
 		)
@@ -227,7 +227,7 @@ final class HomeViewModelTests: XCTestCase {
 		let service = FakeRestaurantsService(restaurants: restaurants, recommendations: nil, moreRestaurants: nil)
 		let bannerService = FakeBannersService(banners: nil)
 		let viewModel = await HomeViewModel(restaurantsService: service, bannersService: bannerService)
-		let initialState: HomeViewState = .loaded(recommendations: nil, allRestaurants: restaurants.map { RestaurantData(from: $0) }, banners: nil)
+		let initialState: HomeViewState = .loaded(recommendations: nil, allRestaurants: restaurants.map { Restaurant(from: $0) }, banners: nil)
 
 		await MainActor.run {
 			viewModel.state = initialState
@@ -253,7 +253,7 @@ final class HomeViewModelTests: XCTestCase {
 			expectedState,
 			.loaded(
 				recommendations: nil,
-				allRestaurants: restaurants.map { RestaurantData(from: $0) },
+				allRestaurants: restaurants.map { Restaurant(from: $0) },
 				banners: nil
 			)
 		)

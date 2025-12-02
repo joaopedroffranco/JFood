@@ -6,11 +6,11 @@ import Foundation
 import JData
 
 class FakeBannersService: BannersServiceProtocol {
-	private let banners: [Banner]?
+	private let banners: [BannerDTO]?
 	
-	init(banners: [Banner]?) {
+	init(banners: [BannerDTO]?) {
 		self.banners = banners
 	}
 	
-	func get() async -> [Banner]? { banners }
+	func get() async -> [BannerDTO]? { banners }
 }

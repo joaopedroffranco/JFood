@@ -4,7 +4,7 @@
 
 import Foundation
 
-public struct Restaurant: Identifiable {
+public struct RestaurantDTO: Identifiable {
 	public let id: String
 	public let name: String
 	public let rating: Float
@@ -12,7 +12,7 @@ public struct Restaurant: Identifiable {
 	public let deliveryPrice: Decimal
 	public let eta: String
 	public let image: String
-	public let dishes: [Dish]?
+	public let dishes: [DishDTO]?
 	
 	public init(
 		id: String,
@@ -22,7 +22,7 @@ public struct Restaurant: Identifiable {
 		deliveryPrice: Decimal,
 		eta: String,
 		image: String,
-		dishes: [Dish]? = nil
+		dishes: [DishDTO]? = nil
 	) {
 		self.id = id
 		self.name = name
@@ -35,4 +35,4 @@ public struct Restaurant: Identifiable {
 	}
 }
 
-extension Restaurant: Codable, Sendable {}
+extension RestaurantDTO: Codable, Sendable {}

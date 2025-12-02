@@ -38,9 +38,9 @@ struct HomeView: View {
 	// MARK: States
 	private var loadingView: some View { LoadingView() }
 	private func contentView(
-		recommendations: [RestaurantData]?,
-		allRestaurants: [RestaurantData]?,
-		banners: [HomeBannerData]?
+		recommendations: [Restaurant]?,
+		allRestaurants: [Restaurant]?,
+		banners: [Banner]?
 	) -> some View {
 		ScrollView(.vertical, showsIndicators: true) {
 			VStack(spacing: DesignSystem.Spacings.margin) {
@@ -64,7 +64,7 @@ struct HomeView: View {
 	}
 	
 	// MARK: Sections
-	private func recommendationsSection(_ data: [RestaurantData]) -> some View {
+	private func recommendationsSection(_ data: [Restaurant]) -> some View {
 		JSectionView(Strings.recommendations) {
 			JCarousel(
 				data: data,
@@ -77,7 +77,7 @@ struct HomeView: View {
 		}
 	}
 	
-	private func bannersSection(_ data: [HomeBannerData]) -> some View {
+	private func bannersSection(_ data: [Banner]) -> some View {
 		JSectionView(Strings.banners) {
 			JCarousel(
 				data: data,
@@ -94,7 +94,7 @@ struct HomeView: View {
 		}
 	}
 	
-	private func allRestaurantsSection(_ data: [RestaurantData]) -> some View {
+	private func allRestaurantsSection(_ data: [Restaurant]) -> some View {
 		JSectionView(Strings.allRestaurants) {
 			LazyVStack(alignment: .leading, spacing: DesignSystem.Spacings.margin) {
 				ForEach(Array(data.enumerated()), id: \.offset) { offset, restaurant in

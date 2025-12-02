@@ -5,7 +5,7 @@
 import Foundation
 import JData
 
-struct HomeBannerData: Hashable, Sendable {
+struct Banner: Hashable, Sendable {
 	let id: String
 	let text: String
 	let color: String
@@ -15,10 +15,8 @@ struct HomeBannerData: Hashable, Sendable {
 		self.text = text
 		self.color = color
 	}
-}
-
-extension HomeBannerData {
-	init(from banner: Banner) {
+	
+	init(from banner: BannerDTO) {
 		self.init(
 			id: banner.id,
 			text: banner.text,

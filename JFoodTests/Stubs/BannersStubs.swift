@@ -6,13 +6,13 @@ import Foundation
 import JData
 
 enum BannersStubs {
-	static let banner1 = Banner(
+	static let banner1 = BannerDTO(
 		id: "b1a2c3",
 		text: "Promoção",
 		color: "#000000"
 	)
 	
-	static let banner2 = Banner(
+	static let banner2 = BannerDTO(
 		id: "a1a1a1",
 		text: "50% off",
 		color: "#ffffff"

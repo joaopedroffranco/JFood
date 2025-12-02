@@ -16,7 +16,7 @@ struct DishView: View {
 		self.description = description
 	}
 	
-	init(from data: DishDataProtocol) {
+	init(from data: DishProtocol) {
 		self.init(name: data.name, price: data.priceAsString, description: data.description)
 	}
 	

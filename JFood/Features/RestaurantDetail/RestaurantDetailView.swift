@@ -33,7 +33,7 @@ struct RestaurantDetailView: View {
 	
 	// MARK: States
 	private var loadingView: some View { LoadingView() }
-	private func contentView(restaurant: RestaurantData) -> some View {
+	private func contentView(restaurant: Restaurant) -> some View {
 		ScrollView(.vertical) {
 			headerView(restaurant)
 			if let dishes = restaurant.dishes { menuView(dishes) }
@@ -45,7 +45,7 @@ struct RestaurantDetailView: View {
 	}
 	
 	// MARK: Sections
-	private func headerView(_ restaurant: RestaurantData) -> some View {
+	private func headerView(_ restaurant: Restaurant) -> some View {
 		VStack(alignment: .center, spacing: DesignSystem.Spacings.default) {
 			KFImage(restaurant.imageUrl)
 				.resizable()
@@ -101,7 +101,7 @@ struct RestaurantDetailView: View {
 		}
 	}
 	
-	private func menuView(_ dishes: [DishData]) -> some View {
+	private func menuView(_ dishes: [Dish]) -> some View {
 		JSectionView(Strings.dishes) {
 			LazyVStack(alignment: .leading, spacing: DesignSystem.Spacings.default) {
 				ForEach(Array(dishes.enumerated()), id: \.offset) { offset, dish  in

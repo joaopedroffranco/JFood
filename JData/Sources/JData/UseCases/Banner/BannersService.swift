@@ -5,7 +5,7 @@
 import Foundation
 
 public protocol BannersServiceProtocol {
-	func get() async -> [Banner]?
+	func get() async -> [BannerDTO]?
 }
 
 public class BannersService: BannersServiceProtocol {
@@ -15,8 +15,8 @@ public class BannersService: BannersServiceProtocol {
 		self.dataSource = dataSource
 	}
 	
-	public func get() async -> [Banner]? {
-		guard let banners: [Banner] = try? await dataSource.fetch(request: BannerRequest.fetch), !banners.isEmpty else { return nil }
+	public func get() async -> [BannerDTO]? {
+		guard let banners: [BannerDTO] = try? await dataSource.fetch(request: BannerRequest.fetch), !banners.isEmpty else { return nil }
 		return banners
 	}
 }

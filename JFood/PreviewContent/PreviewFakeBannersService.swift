@@ -13,9 +13,9 @@ class PreviewFakeBannersService: BannersServiceProtocol {
 		self.state = state
 	}
 	
-	private let instance = Banner(id: "123", text: "50% de desconto apenas hoje!", color: "#FE2346")
+	private let instance = BannerDTO(id: "123", text: "50% de desconto apenas hoje!", color: "#FE2346")
 	
-	func get() async -> [Banner]? {
+	func get() async -> [BannerDTO]? {
 		switch state {
 		case .loading, .loaded: return [instance, instance, instance]
 		case .error: return nil

@@ -6,29 +6,29 @@ import Foundation
 import JData
 
 class FakeRestaurantsService: RestaurantsServiceProtocol {
-	let restaurants: [Restaurant]?
-	let recommendations: [Restaurant]?
-	let moreRestaurants: [Restaurant]?
+	let restaurants: [RestaurantDTO]?
+	let recommendations: [RestaurantDTO]?
+	let moreRestaurants: [RestaurantDTO]?
 	
-	init(restaurants: [Restaurant]?, recommendations: [Restaurant]?, moreRestaurants: [Restaurant]? = nil) {
+	init(restaurants: [RestaurantDTO]?, recommendations: [RestaurantDTO]?, moreRestaurants: [RestaurantDTO]? = nil) {
 		self.restaurants = restaurants
 		self.recommendations = recommendations
 		self.moreRestaurants = moreRestaurants
 	}
 	
-	func getAll() async -> [Restaurant]? {
+	func getAll() async -> [RestaurantDTO]? {
 		restaurants
 	}
 	
-	func getMore() async -> [Restaurant]? {
+	func getMore() async -> [RestaurantDTO]? {
 		moreRestaurants
 	}
 	
-	func getRecommendations() async -> [Restaurant]? {
+	func getRecommendations() async -> [RestaurantDTO]? {
 		recommendations
 	}
 	
-	func getDetails(for id: String) async -> Restaurant? {
+	func getDetails(for id: String) async -> RestaurantDTO? {
 		restaurants?.first { $0.id == id }
 	}
 }

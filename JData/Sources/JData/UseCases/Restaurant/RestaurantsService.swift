@@ -5,10 +5,10 @@
 import Foundation
 
 public protocol RestaurantsServiceProtocol {
-	func getAll() async -> [Restaurant]?
-	func getMore() async -> [Restaurant]?
-	func getRecommendations() async -> [Restaurant]?
-	func getDetails(for id: String) async -> Restaurant?
+	func getAll() async -> [RestaurantDTO]?
+	func getMore() async -> [RestaurantDTO]?
+	func getRecommendations() async -> [RestaurantDTO]?
+	func getDetails(for id: String) async -> RestaurantDTO?
 }
 
 public class RestaurantsService: RestaurantsServiceProtocol {
@@ -20,28 +20,28 @@ public class RestaurantsService: RestaurantsServiceProtocol {
 		self.currentPage = 1
 	}
 	
-	public func getAll() async -> [Restaurant]? {
+	public func getAll() async -> [RestaurantDTO]? {
 		self.currentPage = 1
-		guard let restaurants: [Restaurant] = try? await dataSource.fetch(request: RestaurantRequest.fetchAll), !restaurants.isEmpty else { return nil }
+		guard let restaurants: [RestaurantDTO] = try? await dataSource.fetch(request: RestaurantRequest.fetchAll), !restaurants.isEmpty else { return nil }
 
 		return restaurants
 	}
 	
-	public func getMore() async -> [Restaurant]? {
+	public func getMore() async -> [RestaurantDTO]? {
 		let nextPage = currentPage + 1
-		guard let restaurants: [Restaurant] = try? await dataSource.fetch(request: RestaurantRequest.fetchMore(page: nextPage)), !restaurants.isEmpty else { return nil }
+		guard let restaurants: [RestaurantDTO] = try? await dataSource.fetch(request: RestaurantRequest.fetchMore(page: nextPage)), !restaurants.isEmpty else { return nil }
 
 		self.currentPage = nextPage
 		return restaurants
 	}
 	
-	public func getRecommendations() async -> [Restaurant]? {
-		guard let recommendations: [Restaurant] = try? await dataSource.fetch(request: RestaurantRequest.fetchRecommendations), !recommendations.isEmpty else { return nil }
+	public func getRecommendations() async -> [RestaurantDTO]? {
+		guard let recommendations: [RestaurantDTO] = try? await dataSource.fetch(request: RestaurantRequest.fetchRecommendations), !recommendations.isEmpty else { return nil }
 		return recommendations
 	}
 	
-	public func getDetails(for id: String) async -> Restaurant? {
-		guard let restaurants: [Restaurant] = try? await dataSource.fetch(request: RestaurantRequest.fetchDetails(id: id)), !restaurants.isEmpty else { return nil }
+	public func getDetails(for id: String) async -> RestaurantDTO? {
+		guard let restaurants: [RestaurantDTO] = try? await dataSource.fetch(request: RestaurantRequest.fetchDetails(id: id)), !restaurants.isEmpty else { return nil }
 		return restaurants.first
 	}
 }

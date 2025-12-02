@@ -4,7 +4,7 @@
 
 import Foundation
 
-public struct Dish: Identifiable {
+public struct DishDTO: Identifiable {
 	public let id: String
 	public let name: String
 	public let price: Decimal
@@ -23,4 +23,4 @@ public struct Dish: Identifiable {
 	}
 }
 
-extension Dish: Codable, Sendable {}
+extension DishDTO: Codable, Sendable {}
